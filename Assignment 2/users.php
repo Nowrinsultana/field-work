@@ -36,10 +36,10 @@ $users = mysqli_fetch_all($select, 1);
 
 
           <?php
-          foreach ($users as $user) { ?>
+          foreach ($users as $key => $user) { ?>
             <tr>
               <td>
-                <?= $user['id'] ?>
+                <?= ++$key ?>
               </td>
               <td>
                 <?= $user['name'] ?>
@@ -52,7 +52,7 @@ $users = mysqli_fetch_all($select, 1);
               </td>
               <td>
                 <div class="btn-group">
-                  <a href="" class="btn btn-sm btn-info">View</a>
+                  <a href="./view.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-info">View</a>
                   <a href="" class="btn btn-sm btn-primary">Edit</a>
                   <a href="" class="btn btn-sm btn-danger">Delete</a>
                 </div>
