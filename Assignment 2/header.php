@@ -19,16 +19,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Add User</a>
+            <a class="nav-link active" aria-current="page" href="./index.php">Add User</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Users</a>
+            <a class="nav-link" href="./users.php">Users</a>
           </li>
 
 
       </div>
     </div>
   </nav>
-
-
-
