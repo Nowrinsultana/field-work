@@ -37,23 +37,34 @@ $posts = mysqli_fetch_all($select, 1);
         <tbody>
 
 
-        <?php
-        foreach($posts as $post)
-        
-        ?>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>
-              <div class="btn-group">
-                <a href="" class="btn btn-sm btn-info">View</a>
-                <a href="" class="btn btn-sm btn-primary">Edit</a>
-                <a href="" class="btn btn-sm btn-danger">Delete</a>
-              </div>
-            </td>
-          </tr>
+          <?php
+          foreach ($posts as $key => $post) { ?>
+            <tr>
+              <td>
+                <?= ++$key; ?>
+              </td>
+              <td>
+                <?= $post['name']; ?>
+              </td>
+              <td>
+                <?= $post['email']; ?>
+              </td>
+              <td>
+                <?= $post['description']; ?>
+              </td>
+              <td>
+                <div class="btn-group">
+                  <a href="" class="btn btn-sm btn-info">View</a>
+                  <a href="" class="btn btn-sm btn-primary">Edit</a>
+                  <a href="" class="btn btn-sm btn-danger">Delete</a>
+                </div>
+              </td>
+            </tr>
+          <?php
+          }
+          ?>
+
+
 
         </tbody>
       </table>
