@@ -54,7 +54,7 @@ $posts = mysqli_fetch_all($select, 1);
               </td>
               <td>
                 <div class="btn-group">
-                  <a href="" class="btn btn-sm btn-info">View</a>
+                  <a href="./view.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-info">View</a>
                   <a href="" class="btn btn-sm btn-primary">Edit</a>
                   <a href="" class="btn btn-sm btn-danger">Delete</a>
                 </div>
