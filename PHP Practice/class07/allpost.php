@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once './navbar.php';
 include 'env.php';
 $querry = 'SELECT * FROM posts WHERE 1';
@@ -20,6 +21,14 @@ $posts = mysqli_fetch_all($select, 1);
 
 <body>
   <div class="card  col-md-6 mx-auto mt-3">
+    <?php
+    if (isset($_SESSION['success'])) { ?>
+      <div class="alert alert-success">
+        <?= $_SESSION['success']; ?>
+      </div>
+    <?php
+    }
+    ?>
     <div class="card-header">
       All Posts
     </div>
@@ -55,7 +64,7 @@ $posts = mysqli_fetch_all($select, 1);
               <td>
                 <div class="btn-group">
                   <a href="./view.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-info">View</a>
-                  <a href="" class="btn btn-sm btn-primary">Edit</a>
+                  <a href="./editpost.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
                   <a href="" class="btn btn-sm btn-danger">Delete</a>
                 </div>
               </td>
@@ -74,3 +83,6 @@ $posts = mysqli_fetch_all($select, 1);
 </body>
 
 </html>
+<?php
+session_unset();  
+?>
