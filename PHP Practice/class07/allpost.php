@@ -60,7 +60,13 @@ $posts = mysqli_fetch_all($select, 1);
                   <?= $post['email']; ?>
                 </td>
                 <td>
-                  <?= $post['description']; ?>
+                  <?php
+                  if (strlen($post['description']) > 30) {
+                    echo substr($post['description'], 0, 30) . '...';
+                  } else {
+                    echo $post['description'];
+                  }
+                  ?>
                 </td>
                 <td>
                   <div class="btn-group">
