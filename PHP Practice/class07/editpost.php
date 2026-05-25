@@ -24,8 +24,8 @@ $fetch = mysqli_fetch_assoc($post);
     </div>
     <div class="card-body ">
       <form action="./controlers/editpost_validation.php" method="POST">
-        <input type="hidden" name="id" value="<?= 'id' ?>">  
-      <label for="">Name</label>
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <label for="">Name</label>
         <input type="text" class="form-control mt-2" name="name" value="<?= $fetch['name'] ?>">
         <p class="text-danger">
           <?php

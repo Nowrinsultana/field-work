@@ -37,11 +37,11 @@ if (empty($description)) {
 }
 
 include '../env.php';
-$querry = "UPDATE posts SET name='$name', email='$email', description='$description' WHERE id=$id";
+$querry = "UPDATE posts SET name='$name', email='$email', description='$description'  WHERE id=$id";
 $update = mysqli_query($conn, $querry);
 if ($update) {
-  $_SESSION['success'] = 'Post updated successfully';
-  header("location:../allposts.php");
+  $_SESSION['success'] = 'Post updated successfully id=' . $id;
+  header("location:../allpost.php");
 } else {
   echo "Error: " . mysqli_error($conn);
 }

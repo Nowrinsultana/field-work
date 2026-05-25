@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once 'navbar.php';
 include 'env.php';
 $id = $_GET['id'];
 $ruerry = "SELECT name, description FROM posts WHERE id = $id";
@@ -24,12 +24,9 @@ $fetch = mysqli_fetch_assoc($postDes);
 
     </div>
     <div class="card-body">
-      <form>
-        <textarea rows="15" class="form-control">
+      <p>
         <?= $fetch['description'] ?>
-        </textarea>
-      </form>
-
+      </p>
     </div>
   </div>
 

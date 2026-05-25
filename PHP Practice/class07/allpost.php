@@ -20,7 +20,7 @@ $posts = mysqli_fetch_all($select, 1);
 </head>
 
 <body>
-  <div class="card  col-md-6 mx-auto mt-3">
+  <div class="card  col-md-10 mx-auto mt-3">
     <?php
     if (isset($_SESSION['success'])) { ?>
       <div class="alert alert-success">
@@ -33,50 +33,52 @@ $posts = mysqli_fetch_all($select, 1);
       All Posts
     </div>
     <div class="card-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>SL</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Description</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-
-
-          <?php
-          foreach ($posts as $key => $post) { ?>
+      <div class="table">
+        <table class="table table-bordered">
+          <thead>
             <tr>
-              <td>
-                <?= ++$key; ?>
-              </td>
-              <td>
-                <?= $post['name']; ?>
-              </td>
-              <td>
-                <?= $post['email']; ?>
-              </td>
-              <td>
-                <?= $post['description']; ?>
-              </td>
-              <td>
-                <div class="btn-group">
-                  <a href="./view.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-info">View</a>
-                  <a href="./editpost.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
-                  <a href="" class="btn btn-sm btn-danger">Delete</a>
-                </div>
-              </td>
+              <th>SL</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Description</th>
+              <th>Action</th>
             </tr>
-          <?php
-          }
-          ?>
+          </thead>
+          <tbody>
+
+
+            <?php
+            foreach ($posts as $key => $post) { ?>
+              <tr>
+                <td>
+                  <?= ++$key; ?>
+                </td>
+                <td>
+                  <?= $post['name']; ?>
+                </td>
+                <td>
+                  <?= $post['email']; ?>
+                </td>
+                <td>
+                  <?= $post['description']; ?>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <a href="./view.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-info">View</a>
+                    <a href="./editpost.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="./controlers/deletepost.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-danger">Delete</a>
+                  </div>
+                </td>
+              </tr>
+            <?php
+            }
+            ?>
 
 
 
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -84,5 +86,5 @@ $posts = mysqli_fetch_all($select, 1);
 
 </html>
 <?php
-session_unset();  
+session_unset();
 ?>
